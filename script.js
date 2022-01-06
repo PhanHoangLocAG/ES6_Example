@@ -1,17 +1,15 @@
-var user= {
+var user = {
     id:1,
     name:'loc',
-    age:24,
-    university:'STU'
+    age:23,
+    university:'stu'
 }
 
-var className = ['loc','ngan','linh','trung'];
+var classList= ['loc','ngan','thanh'];
 
-for (const item  in user) {
-   console.log(item)
-}
 
-for (const item in className) {
-    console.log(item)
+
+for (const item of classList) {
+    console.log(item);
 }
-// when you use for in just get index toward array and key with object
+// for of just use with array , it is not use with object, it get value of array
