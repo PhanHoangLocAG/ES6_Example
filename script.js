@@ -1,15 +1,18 @@
-var user = {
-    id:1,
-    name:'loc',
-    age:23,
-    university:'stu'
+var arr = ['loc','ngan','thanh','xuan'];
+
+arr.forEach((item,index) =>{
+    console.log(index+":"+ item);
+});
+
+var numbers = [1,2,3,4];
+var sum = 0;
+
+let sumFunction = function(a,b){
+    return a+b;
 }
 
-var classList= ['loc','ngan','thanh'];
+numbers.forEach( async function(item){
+    sum = await sumFunction(sum,item);
+})
 
-
-
-for (const item of classList) {
-    console.log(item);
-}
-// for of just use with array , it is not use with object, it get value of array
+console.log(sum);
