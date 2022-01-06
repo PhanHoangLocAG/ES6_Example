@@ -1,16 +1,6 @@
-var arr = ['hoang loc','kien','nhung ha','nguyen a'];
+var arr = [1,2,3,4,5];
 
-var arr1= arr.filter(item => item.length > 5);
-
+var arr1 = arr.map(item => item * 2);
 console.log(arr1);
-// function filter return result.
-
-var numbers = [1,2,3,4,5,6,7].filter(GetData);
-
-function GetData(i){
-    return i > 5
-}
-
-console.log(numbers);
-// parameter is callback function
-
+console.log(arr);
+// map function is map all item of array with new value.
