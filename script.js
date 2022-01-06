@@ -1,9 +1,55 @@
-var arr = [1,3,7,4,5,2,6,-5];
+function GetData(url, callback){
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function(){
+        if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+            callback(xmlHttp);
+        }
+    };
+    xmlHttp.open("GET",url,true) // true is use asynchronous
+    xmlHttp.send(null);
+}
 
-var arr1 = arr.find(item => item == 2);
-var arr2 = arr.find(item => item > 4);
-var arr3= arr.find(item => item <0 );
-console.log(arr1);
-console.log(arr2);
-console.log(arr3);
-// find function is use search item with condition,return item valid with condition,return value not array
+// GetData('https://picsum.photos/200/300',(data)=>{
+//     console.log(data);
+//     document.getElementById('img_1').setAttribute('src', data.responseURL);
+
+
+//     GetData('https://picsum.photos/200/300',(data)=>{
+//     console.log(data);
+//     document.getElementById('img_2').setAttribute('src', data.responseURL);
+
+// });
+
+// GetData('https://picsum.photos/200/300',(data)=>{
+//     console.log(data);
+//     document.getElementById('img_3').setAttribute('src', data.responseURL);
+
+// });
+
+// });
+
+
+const currentPromise = new Promise((resolve, reject)=>{
+    GetData('https://picsum.photos/200/300', resolve);
+});
+
+const promise2 = new Promise((resolve, reject)=>{
+    GetData('https://picsum.photos/200/300', resolve);
+})
+
+currentPromise
+    .then((data)=>{
+        console.log(data);
+        document.getElementById('img_1').setAttribute('src', data.responseURL);
+        return promise2;
+    })
+    .then((data)=>{
+        console.log(data);
+        document.getElementById('img_2').setAttribute('src', data.responseURL);
+    })
+    .catch((err)=>{
+        console.log(err);
+    });
+
+//promise done is execute resolve. promise error is execute reject
+//promise have 3 status: pending(processing), fulfilled(perfect), rejected(error)
