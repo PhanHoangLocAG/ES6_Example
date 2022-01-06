@@ -1,18 +1,16 @@
-var arr = ['loc','ngan','thanh','xuan'];
+var arr = ['hoang loc','kien','nhung ha','nguyen a'];
 
-arr.forEach((item,index) =>{
-    console.log(index+":"+ item);
-});
+var arr1= arr.filter(item => item.length > 5);
 
-var numbers = [1,2,3,4];
-var sum = 0;
+console.log(arr1);
+// function filter return result.
 
-let sumFunction = function(a,b){
-    return a+b;
+var numbers = [1,2,3,4,5,6,7].filter(GetData);
+
+function GetData(i){
+    return i > 5
 }
 
-numbers.forEach( async function(item){
-    sum = await sumFunction(sum,item);
-})
+console.log(numbers);
+// parameter is callback function
 
-console.log(sum);
